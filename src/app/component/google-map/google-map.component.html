@@ -1,0 +1,21 @@
+<div class="map-content">
+  <agm-map
+    [latitude]="marker.lat"
+    [longitude]="marker.lng"
+    style="height: 500px"
+    (mapRightClick)="mapRightClick()"
+  >
+    <agm-marker
+      [latitude]="marker.lat"
+      [longitude]="marker.lng"
+      [visible]="markerVisible"
+    ></agm-marker>
+    <agm-polygon [paths]="polyArray" [fillColor]="fillColor"></agm-polygon>
+  </agm-map>
+  <button
+    class="btn"
+    nz-button
+    nzType="primary"
+    (click)="fillColorHandle()"
+  >fill color</button>
+</div>
