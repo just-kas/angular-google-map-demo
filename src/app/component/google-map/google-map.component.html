@@ -11,6 +11,7 @@
       [visible]="markerVisible"
     ></agm-marker>
     <agm-polygon [paths]="polyArray" [fillColor]="fillColor"></agm-polygon>
+    <agm-data-layer [geoJson]="mapGeo"></agm-data-layer>
   </agm-map>
   <button
     class="btn"

@@ -10,6 +10,8 @@
         "statements"
       ]
     },
+    "prefer-for-of": false,
+    "only-arrow-functions": false,
     "array-type": false,
     "arrow-return-shorthand": true,
     "curly": true,

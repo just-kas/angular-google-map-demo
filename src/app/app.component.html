@@ -8,13 +8,19 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
-        <span class="header-title">google map show</span>
+        <span class="header-title">
+           <span>
+             google map show
+           </span>
+          <span>shp文件渲染:澳大利亚</span>
+        </span>
       </div>
     </nz-header>
     <app-google-map
       [marker]="marker"
       [markerArray]="markerArray"
       (mapRightEvent)="mapRightEvent()"
+      [mapGeo]="getGeoJson"
     ></app-google-map>
   </nz-layout>
   <nz-sider class="menu-sidebar"
@@ -24,19 +30,27 @@
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
+      <a target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
         <h1>google map marker</h1>
       </a>
     </div>
-    <button
-      [ngStyle]="{marginLeft: '24px'}"
-      nz-button
-      nzType="primary"
-      (click)="random()"
-    >500 marker</button>
-    <input type="file">
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="buttons" nzIcon="bars">
+        <ul>
+          <li nz-menu-item>
+            <button
+              nz-button
+              nzType="primary"
+              (click)="random()"
+            >500 marker</button>
+          </li>
+          <li nz-menu-item>
+            <input type="file" accept="*/*" (change)="updateFilename($event)">
+          </li>
+        </ul>
+      </li>
+
       <li nz-submenu nzOpen nzTitle="markers" nzIcon="dashboard">
         <ul>
           <li
